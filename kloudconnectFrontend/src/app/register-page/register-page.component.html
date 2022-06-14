@@ -1,0 +1,61 @@
+<div>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+    </head>
+    <div class="main_Container">
+        <div class="login_Container">
+            <div class="container">
+                <h1 class="register_h1">Register to <br/> Kloud-Connect</h1>
+                
+                <div *ngIf="message" class="error_message_container">
+                    <p>{{message}}</p>
+                    <mat-icon class="clear_icon" (click)="removeMessage()">clear</mat-icon>
+                </div>
+                
+                <form [formGroup]="registerForm" (ngSubmit)="submit()">
+                    <div class="input_field">
+                        <label for="username">Full Name</label>
+                        <div class="input_container">
+                            <mat-icon class="icon">supervisor_account</mat-icon>
+                            <input type="text" spellcheck="false" formControlName="username" placeholder="Type Your Full Name" />
+                        </div>
+                        <span><small class="error" *ngIf="username?.touched && username?.invalid">Enter Valid Password</small></span>
+
+                    </div>
+                    <div class="input_field extra_margin">
+                        <label for="username">Email</label>
+                        <div class="input_container">
+                            <mat-icon class="icon">email</mat-icon>
+                            <input type="email" spellcheck="false" formControlName="email" placeholder="Type Your Email" />
+                        </div>
+                        <span><small class="error" *ngIf="email?.touched && email?.invalid">Enter Valid Password</small></span>
+                    </div>
+                    <div class="input_field extra_margin">
+                        <label for="username">Password</label>
+                        <div class="input_container">
+                            <mat-icon class="icon">lock</mat-icon>
+                            <input type="password" spellcheck="false" formControlName="password" placeholder="Type Your Password" />
+                        </div>
+                        <span><small class="error" *ngIf="password?.touched && password?.invalid">Enter Valid Password</small></span>
+                    </div>
+                    <div class="input_field extra_margin">
+                        <label for="username">Confirm Password</label>
+                        <div class="input_container">
+                            <mat-icon class="icon">confirmation_number</mat-icon>
+                            <input type="password" spellcheck="false" formControlName="confirmPassword" placeholder="Type Your Password" />
+                        </div>
+                        <span><small class="error" *ngIf="confirmPassword?.touched && confirmPassword?.invalid">Enter Valid Password</small></span>
+                    </div>
+                    <div class="input_field">
+                        <button class="register_btn">Register</button>
+                    </div>
+                </form>
+                <div class="already_member">
+                    <p>Already member? <a [routerLink]="['../login']" class="login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

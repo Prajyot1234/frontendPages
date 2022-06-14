@@ -1,0 +1,30 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.home_Container{
+    font-family: 'poppins';
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../assets/images/bg-hero-desktop.svg");
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    display: flex;
+}
+
+@media screen and (max-width: 769px) {
+   .home_Container{
+    background-image: url("../../assets/images/bg-hero-mobile.svg");
+   }
+   .container{
+       flex-direction: column-reverse;
+   }
+}

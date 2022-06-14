@@ -1,0 +1,44 @@
+<div>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+    </head>
+    <div class="main_Container">
+        <div class="login_Container">
+            <div class="container">
+                <h1 class="login_h1">Login to <br/> Kloud-Connect</h1>
+                <div *ngIf="message" class="error_message_container">
+                    <p>{{message}}</p>
+                    <mat-icon class="clear_icon" (click)="removeMessage()">clear</mat-icon>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                    <div class="input_field">
+                        <label for="username">Username</label>
+                        <div class="input_container">
+                            <mat-icon class="icon">supervisor_account</mat-icon>
+                            <input required type="email" spellcheck="false" formControlName="username" placeholder="Type Your Username" />
+                        </div>
+                        <span><small class="error" *ngIf="username?.touched && username?.invalid">Enter Valid Username</small></span>
+                    </div>
+                    
+                    <div class="input_field margin_top">
+                        <label for="password">Password</label>
+                        <div class="input_container">
+                            <mat-icon class="icon">lock</mat-icon>
+                            <input required type="password" spellcheck="false" formControlName="password" placeholder="Type Your Password" />
+                        </div>
+                        <span><small class="error" *ngIf="password?.touched && password?.invalid">Enter Valid Password</small></span>
+                    </div>
+                    <p class="forgot_password extra_margin"><span><a class="forgot_link" [routerLink]="['../reset-password']">Forgot Password?</a></span></p>
+                    <div class="input_field">
+                        <button type="submit" class="login_btn">Login</button>
+                    </div>
+                </form>
+                <div class="not_member">
+                    <p>Not a Member? <a [routerLink]="['../register']" class="signUp">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
